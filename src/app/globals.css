@@ -6,7 +6,7 @@
   height:100vh;
 }
 nav{
-  @apply p-10 justify-between items-start flex flex-row box-content ;  
+  @apply p-10 justify-between items-start flex flex-row box-content relative;  
 }
 
 .logo_text{
@@ -291,6 +291,7 @@ nav{
 .nav-menu{
   @apply absolute right-10 bg-white p-2 rounded-lg text-gray-600 font-light flex-col flex gap-3 border-2 border-black;
   top: 5.7rem;
+  z-index: 100;
 }
 
 .user-manage{

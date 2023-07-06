@@ -7,14 +7,15 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import NavBlogMenu from "./NavBlogMenu";
-const ZCOOLKuaiLe = ZCOOL_KuaiLe({ subsets: ['latin'], weight: "400" });
+
 const MonotonFont = Monoton({ subsets: ['latin'], weight: "400" });
 
 
 const Nav = () => {
-  const [providers, setProviders] = useState(null);
   const { data: session } = useSession();
   const router = useRouter();
+  
+  const [providers, setProviders] = useState(null);
   const [profile, setProfile] = useState(false);
   const [blogs, setBlogs] = useState([]);
 
