@@ -415,7 +415,7 @@ nav{
 }
 
 .list_preview{
-  @apply flex h-full w-full justify-between ;
+  @apply flex h-full w-full justify-between gap-4;
 }
 
 .preview_img{
@@ -517,5 +517,9 @@ nav{
 
    .editor_head_group{
      @apply px-5
+   }
+   
+   .post_list_item{
+     @apply px-3 pt-3
    }
 }
