@@ -216,26 +216,6 @@ nav{
   @apply text-lg font-semibold bg-gray-500 text-white px-3 py-2 rounded-lg mt-2 mb-2;
 }
 
-@media (max-width: 800px) {
-  .desktop_btn {
-    display:none;
-  }
-  .head_text{
-    font-size:20px;
-    @apply font-semibold text-gray-700;
-  }
-  .desc{
-    @apply text-base;
-  }
-  .heading_section{
-    padding:3rem 2rem;
-  }
-
-  .post_list_item{
-    padding: 1rem 2rem;
-  }
-
-}
 
 .comment-delete-btn{
   @apply  font-thin text-sm px-2 py-1 ml-1 rounded-lg;
@@ -291,7 +271,7 @@ nav{
 .nav-menu{
   @apply absolute right-10 bg-white p-2 rounded-lg text-gray-600 font-light flex-col flex gap-3 border-2 border-black;
   top: 5.7rem;
-  z-index: 100;
+  z-index: 999;
 }
 
 .user-manage{
@@ -304,6 +284,11 @@ nav{
 
 .nav-menu-elm{
   @apply cursor-pointer py-2 border-b;
+}
+
+
+.nav-menu-elm:last-child{
+  @apply border-0
 }
 
 .manage-container{
@@ -370,7 +355,8 @@ nav{
 }
 
 .blog-menu{
-  @apply border flex flex-col w-24 rounded-lg relative; 
+  width:150px;
+  @apply border flex flex-col rounded-lg relative; 
 }
 
 .down-arrow{
@@ -379,15 +365,21 @@ nav{
 
 
 .pick-option{
+  width:150px;
   top:35px; 
   left:0px;
-
-  @apply absolute border  px-2 py-1 bg-white border-gray-500 rounded-lg font-light text-gray-600 w-full;
+  z-index:999;
+  @apply absolute border  px-2 py-1 bg-white border-gray-500 rounded-lg font-light text-gray-600;
 }
 
 
 .pick-option-value{
-  @apply cursor-pointer w-full border-b 
+  width: fit-content;
+  @apply cursor-pointer w-full border-b py-1 ;
+}
+
+.pick-option-value:last-child{
+  @apply border-0;
 }
 
 
@@ -440,4 +432,90 @@ nav{
 
 .recomment-btn{
   @apply w-20 bg-gray-400 ml-3 rounded-lg text-white font-light
+}
+
+.spinner {
+  animation-name: spinner-line-fade-more;
+  scale:3.0;
+  @apply relative;
+  /* 다른 스타일 속성들 */
+}
+
+.loading-text{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 120%);
+  @apply absolute text-center font-light text-lg;
+}
+
+{/**로딩 서클*/}
+@keyframes spinner-line-fade-more {
+  0%, 100% {
+    opacity: 0; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-quick {
+  0%, 39%, 100% {
+    opacity: 0.25; /* minimum opacity */
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-default {
+  0%, 100% {
+    opacity: 0.22; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-shrink {
+  0%, 25%, 100% {
+    /* minimum scale and opacity */
+    transform: scale(0.5);
+    opacity: 0.25;
+  }
+  26% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+{/**모바일 화면*/}
+@media (max-width: 800px) {
+  .desktop_btn {
+    display:none;
+  }
+  .head_text{
+    font-size:20px;
+    @apply font-semibold text-gray-700;
+  }
+  .desc{
+    @apply text-base;
+  }
+  .heading_section{
+    padding:3rem 2rem;
+  }
+
+  .post_list_item{
+    padding: 1rem 2rem;
+  }
+  .spinner {
+    scale:2.0
+  }
+  .blog-no-content{
+    @apply mx-auto border p-10 flex items-center w-80;
+   }
+
+   .editor_head_group{
+     @apply px-5
+   }
 }

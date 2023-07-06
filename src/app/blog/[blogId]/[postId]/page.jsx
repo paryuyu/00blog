@@ -13,9 +13,8 @@ const postDetail = () => {
   const [commentNew, setCommentNew] = useState(false);
   const router = useRouter();
   const { data: session } = useSession();
-  console.log(content, 'content!@')
-  async function getPostData() {
 
+  async function getPostData() {
     const res = await fetch('/api/post/' + postId);
     const post = await res.json();
     setContent(post)
@@ -100,7 +99,7 @@ const postDetail = () => {
             <span className="user_info">{content?.creator.username}</span>
           </div>
         </div>
-        <span className="created_at">{dataFormatter(content?.createdAt)}</span>
+        <span className="created_at">{content && dataFormatter(content?.createdAt)}</span>
 
 
       </div>

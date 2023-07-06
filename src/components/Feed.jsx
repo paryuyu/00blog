@@ -2,21 +2,23 @@
 
 import { getAllPosts } from '@/services/post';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { LoadingSpinner } from './LoadingSpinner';
 import Postlist from './Postlist';
 
-
-const Feed = ({ }) => {
+const Feed = () => {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
   const [schText, setSchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchResults, setSearchResult] = useState([]);
- 
+  const [isLoading, setIsLoading] = useState(false);
   //페치 함수
   async function getPostData() {
+    setIsLoading(true);
     const datas = await getAllPosts();
-    setPosts(datas)
+    setPosts(datas);
+    setIsLoading(false);
   }
 
   //포스트 리스트
@@ -48,19 +50,19 @@ const Feed = ({ }) => {
     )
   };
 
-  
+
   return (
     <section className='feed_section'>
-
       <input type="text" className='sch_bar' placeholder='포스트를 검색해보세요.' onChange={handleChange} />
       {searchResults?.length > 0 ?
-        searchResults?.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt)).map((post) => {
+        searchResults?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((post) => {
           return <Postlist key={post._id} content={post.content} title={post.title} post={post} user={post.creator} onNav={handleNavigationPost} />
         })
-        : posts?.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt)).map((post) => {
+        : posts?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((post) => {
           return <Postlist key={post._id} content={post.content} title={post.title} post={post} user={post.creator} onNav={handleNavigationPost} />
         })
       }
+      {isLoading && <LoadingSpinner type="data"/>}
     </section>
 
   )
