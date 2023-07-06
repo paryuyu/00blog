@@ -65,6 +65,7 @@ const Nav = () => {
   }
 
   const handleWriteNavigation = () => {
+    if(!blogs && blogs.length === 0) return ("블로그 생성 후 이용 가능합니다.")
     router.push("/write")
   }
 
