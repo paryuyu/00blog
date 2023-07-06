@@ -121,7 +121,7 @@ const postDetail = () => {
         {comments?.map((one) => {
           return <CommentList item={one} key={one._id} onCommentNew={handleCommentChange}/>
         })}
-        <Comment content={content} comments={comments} onCommentNew={handleCommentChange} />
+        <CommentInput content={content} comments={comments} onCommentNew={handleCommentChange} />
       </section>
     </section>
   )
