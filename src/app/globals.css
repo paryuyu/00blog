@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .main{
   height:100vh;
 }
+
 nav{
-  @apply p-10 justify-between items-start flex flex-row box-content relative;  
+  @apply p-5 justify-between items-center flex flex-row box-content relative;  
 }
+
 
 .logo_text{
   @apply font-extrabold text-3xl text-gray-600 cursor-pointer hover:underline;
@@ -22,11 +26,11 @@ nav{
 }
 
 .outline_btn{
-  @apply bg-white border  border-gray-600 text-gray-600 box-content rounded-lg px-3 py-2;
+  @apply bg-white border border-pink-300 text-gray-500 box-content rounded-lg px-3 py-2; 
 }
 
 .outline_btn:hover{
-  @apply bg-gray-400 border-gray-400 text-white text-base flex justify-center items-center shadow-lg font-light text-base border;
+  @apply bg-gray-100 text-gray-500 ;
 }
 
 .profile{
@@ -41,11 +45,11 @@ nav{
 
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-300 to-cyan-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent;
 }
 
 .gradient_btn{
-  @apply bg-gradient-to-r from-blue-300 to-cyan-500 px-3 rounded-lg text-white;
+  @apply bg-gradient-to-r from-indigo-500 to-pink-500 px-3 rounded-lg text-white;
 }
 
 
@@ -126,9 +130,10 @@ nav{
 }
 
 .head_text{
-  font-size: 5rem;
+  font-family: 'SangSangShinb7';
+  font-size: 4rem;
   font-weight: 100;
-  color:#303030;
+  color: #fff !important;
   padding-bottom:20px;
   font-style:italic;
 
@@ -137,8 +142,9 @@ nav{
 .desc{
   font-size:20px;
   font-weight:100;
-  color:#30303099;
+  color:#fff;
 }
+
 .logo{
   font-weight: 400;
   text-decoration:underline;
@@ -148,7 +154,7 @@ nav{
   background:#d0d0d030;
   padding:5rem 4rem;
   cursor:default;
-  @apply bg-gradient-to-b from-emerald-50 to-sky-100;
+  @apply bg-gradient-to-r from-indigo-400 to-pink-400 mx-3 rounded-lg;
 }
 
 .post_detail_page{
@@ -496,8 +502,9 @@ nav{
   }
   .head_text{
     font-size:20px;
-    @apply font-semibold text-gray-700;
+    color: #f0f0f0 !important;
   }
+
   .desc{
     @apply text-base;
   }

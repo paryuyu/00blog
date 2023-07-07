@@ -14,7 +14,6 @@ export const metadata = {
     ...openGraphImg,
     title: '00Blog',
     description: '카카오톡으로 간단하게 로그인하여 사용해보세요.',
-
   },
 }
 

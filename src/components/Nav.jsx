@@ -1,6 +1,6 @@
 'use client';
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
-import { Monoton, ZCOOL_KuaiLe } from "next/font/google";
+import { Monoton, ZCOOL_KuaiLe, Bagel_Fat_One } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import NavBlogMenu from "./NavBlogMenu";
 
-const MonotonFont = Monoton({ subsets: ['latin'], weight: "400" });
+const MonotonFont = Bagel_Fat_One({ subsets: ['latin'], weight: "400" });
 
 
 const Nav = () => {
@@ -84,12 +84,18 @@ const Nav = () => {
   return (
     <nav>
       <h1 className="blue_gradient logo_text ">
-        <Link href={"/"} className={MonotonFont.className}>00BLOG</Link>
+        {/* <Link href={"/"} className={MonotonFont.className}>00BLOG</Link> */}
+        <Image
+        src={"/assets/images/logo.png"}
+        alt="logo"
+        width={150}
+        height={100}
+        />
       </h1>
 
       {session?.user ?
         <div className="login_profile_block">
-          <button className="gradient_btn desktop_btn" onClick={handleWriteNavigation}>Write</button>
+          <button className="desktop_btn outline_btn" onClick={handleWriteNavigation}>Write</button>
           <button className="outline_btn desktop_btn" onClick={handleSignOut}>Sign Out</button>
 
           <Image
