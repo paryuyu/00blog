@@ -333,7 +333,7 @@ nav{
 }
 
 .blog-header{
-  @apply container mx-auto flex p-10 border-b-2 justify-between items-center border-black mb-10;
+  @apply container mx-auto flex p-10 border-b-2 justify-between items-center border-gray-700 mb-10;
 }
 
 .circle_btn{
@@ -344,7 +344,7 @@ nav{
 }
 
 .blog-name{
-  @apply text-2xl font-semibold cursor-pointer
+  @apply text-4xl font-semibold cursor-pointer text-gray-700
 }
 
 
