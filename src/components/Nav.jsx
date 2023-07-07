@@ -38,7 +38,7 @@ const Nav = () => {
       setProfile(false);
     }
   };
-  
+
   useEffect(() => {
     //최상위 프로필 메뉴 다른 영역 클릭 시 이벤트 발생
     document.addEventListener('click', handleOutsideClick);
@@ -65,7 +65,7 @@ const Nav = () => {
   }
 
   const handleWriteNavigation = () => {
-    if(!blogs && blogs.length === 0) return ("블로그 생성 후 이용 가능합니다.")
+    if (!blogs && blogs.length === 0) return ("블로그 생성 후 이용 가능합니다.")
     router.push("/write")
   }
 
@@ -84,13 +84,14 @@ const Nav = () => {
   return (
     <nav>
       <h1 className="blue_gradient logo_text ">
-        {/* <Link href={"/"} className={MonotonFont.className}>00BLOG</Link> */}
-        <Image
-        src={"/assets/images/logo.png"}
-        alt="logo"
-        width={150}
-        height={100}
-        />
+        <Link href={"/"}>
+          <Image
+            src={"/assets/images/logo.png"}
+            alt="logo"
+            width={150}
+            height={100}
+          />
+        </Link>
       </h1>
 
       {session?.user ?
@@ -99,7 +100,7 @@ const Nav = () => {
           <button className="outline_btn desktop_btn" onClick={handleSignOut}>Sign Out</button>
 
           <Image
-           ref={profileRef}
+            ref={profileRef}
             className="profile"
             src={session?.user.image}
             width={40}
