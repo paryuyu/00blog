@@ -2,7 +2,7 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Provider from '@/components/Provider'
 
-export const openGraphImg = { images: ['/ogImg.png'] }
+export const openGraphImg = { images: ['/ogimage.png'] }
 export const metadata = {
   title: '00blog',
   description: 'custom blog project',
