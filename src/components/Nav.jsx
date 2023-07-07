@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import NavBlogMenu from "./NavBlogMenu";
 
-const MonotonFont = Bagel_Fat_One({ subsets: ['latin'], weight: "400" });
+const MonotonFont = Monoton({ subsets: ['latin'], weight: "400" });
 
 
 const Nav = () => {
@@ -83,15 +83,8 @@ const Nav = () => {
 
   return (
     <nav>
-      <h1 className="blue_gradient logo_text ">
-        <Link href={"/"}>
-          <Image
-            src={"/assets/images/logo.png"}
-            alt="logo"
-            width={150}
-            height={100}
-          />
-        </Link>
+        <h1 className="blue_gradient logo_text ">
+        <Link href={"/"} className={MonotonFont.className}>00BLOG</Link>
       </h1>
 
       {session?.user ?

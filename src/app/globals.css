@@ -13,8 +13,10 @@ nav{
 }
 
 
-.logo_text{
-  @apply font-extrabold text-3xl text-gray-600 cursor-pointer hover:underline;
+
+  .logo_text{
+    @apply font-extrabold text-3xl text-gray-600 cursor-pointer hover:underline;
+  
 } 
 
 .fill_btn{
@@ -26,7 +28,7 @@ nav{
 }
 
 .outline_btn{
-  border:2px solid #6978e3;
+  border:2px solid #30303050;
   @apply bg-white text-gray-500 box-content rounded-xl px-3 py-2; 
 }
 
@@ -46,11 +48,11 @@ nav{
 
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent;
 }
 
 .gradient_btn{
-  @apply bg-gradient-to-r from-indigo-500 to-purple-500 px-3 rounded-xl text-white;
+  @apply bg-gradient-to-b from-blue-400 to-cyan-400 px-3 rounded-xl text-white;
 }
 
 
@@ -155,7 +157,7 @@ nav{
   background:#d0d0d030;
   padding:5rem 4rem;
   cursor:default;
-  @apply bg-gradient-to-r from-indigo-400 to-pink-400 mx-3 rounded-lg;
+  @apply bg-gradient-to-r from-blue-300 to-cyan-300 mx-3 rounded-lg;
 }
 
 .post_detail_page{
@@ -498,6 +500,11 @@ nav{
 
 {/**모바일 화면*/}
 @media (max-width: 800px) {
+
+  .loading-text{
+    @apply p-2 text-sm;
+  }
+
   .desktop_btn {
     display:none;
   }
@@ -529,6 +536,10 @@ nav{
    
    .post_list_item{
      @apply px-3 pt-3
+   }
+
+   .sch_bar{
+     @apply mx-auto w-11/12
    }
 }
 
