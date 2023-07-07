@@ -26,7 +26,8 @@ nav{
 }
 
 .outline_btn{
-  @apply bg-white border border-pink-300 text-gray-500 box-content rounded-lg px-3 py-2; 
+  border:2px solid #6978e3;
+  @apply bg-white text-gray-500 box-content rounded-xl px-3 py-2; 
 }
 
 .outline_btn:hover{
@@ -49,7 +50,7 @@ nav{
 }
 
 .gradient_btn{
-  @apply bg-gradient-to-r from-indigo-500 to-pink-500 px-3 rounded-lg text-white;
+  @apply bg-gradient-to-r from-indigo-500 to-purple-500 px-3 rounded-xl text-white;
 }
 
 

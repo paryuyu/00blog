@@ -96,7 +96,7 @@ const Nav = () => {
 
       {session?.user ?
         <div className="login_profile_block">
-          <button className="desktop_btn outline_btn" onClick={handleWriteNavigation}>Write</button>
+          <button className="desktop_btn gradient_btn" onClick={handleWriteNavigation}>Write</button>
           <button className="outline_btn desktop_btn" onClick={handleSignOut}>Sign Out</button>
 
           <Image
