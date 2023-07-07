@@ -33,7 +33,7 @@ export const PATCH = async (req) => {
     updateData.content = content;
     console.log(updateData, 'update!')
     const result = await Post.findByIdAndUpdate(postId, updateData).lean();
-    return new Response(result, { status: 200 })
+    return new Response(JSON.stringify(result), { status: 200 })
   } catch (error) {
     return new Response("Failed to create a new post", { status: 500 });
   }

@@ -36,13 +36,14 @@ const Formats = ['header',
 
 
 const TextEditor = ({ onContent, content }) => {
-  // const QuillRef = useRef();
   const [preview, setPreview] = useState("");
   const quillRef = useRef();
   const handleText = (val) => {
     onContent(val)
   }
-  console.log(content)
+
+
+//이미지 등록
   const imageHandler = () => {
     //기존 quill 설정에서 벗어나 input 설정으로 변경해줌.
     const input = document.createElement('input');
@@ -56,11 +57,11 @@ const TextEditor = ({ onContent, content }) => {
     async function getImgFile(e) {
       //파일 배열로 받기
       let file = e.currentTarget.files?.[0];
-      
+
       const formData = new FormData();
       formData.append('file', file)
       formData.append('upload_preset', env.CLOUD_PRESET_NAME)
-      
+
       try {
         const response = await fetch(`https://api.cloudinary.com/v1_1/${env.CLOUD_NAME}/upload`, {
           method: "POST",
@@ -82,13 +83,12 @@ const TextEditor = ({ onContent, content }) => {
 
   }
 
-
   const modules = useMemo(() => {
     return {
       toolbar: {
         container: [
           ['image'],
-          [{ font: [] }, { header: [1, 2, 3, 4, 5, 6, false] }],
+          [{ font: [] }, { header: [1, 2, 3, false] }],
           ['bold', 'italic', 'underline', 'strike', 'code-block', 'link'],
           [{ color: [] }, { background: [] }, { align: [] }],
           [

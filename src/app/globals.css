@@ -523,3 +523,45 @@ nav{
      @apply px-3 pt-3
    }
 }
+
+.post_view {
+  @apply p-3;
+}
+
+.post_view pre {
+  padding:10px !important;
+  height: 100%;
+  white-space: pre-wrap;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  @apply bg-gray-800 rounded-lg text-sm text-white mx-5 overflow-visible text-white m-3;
+}
+
+
+.post_view blockquote {
+    @apply text-lg mt-5 border-l-4 border-gray-300 pl-4 text-gray-700;
+}
+
+.post_view h1{
+  @apply text-4xl;
+}
+
+.post_view h2{
+  @apply text-3xl;
+}
+
+.post_view h3{
+  @apply text-2xl;
+}
+
+
+.post_view .ql-font-serif{
+  font-family: serif;
+}
+
+.post_view .ql-font-monospace{
+  font-family: monospace;
+}
+
+.post_view p{
+  @apply text-base;
+}

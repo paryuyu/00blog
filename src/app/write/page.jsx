@@ -19,8 +19,10 @@ const WritePage = () => {
   const [blogId, setBlogId] = useState("")
   const [originData, setOriginData] = useState({});
 
+
   const router = useRouter();
   const schParams = useSearchParams();
+
   let type = schParams.get("type");
   let postId = schParams.get("postId");
 
@@ -28,17 +30,16 @@ const WritePage = () => {
 
   async function getPostData() {
 
-
     if (type === "edit" && postId) {
       let response = await axios.get("/api/post/" + postId)
       if (response?.status === 200) {
 
         let { data } = response;
-
+        console.log(data,'data!')
         setOriginData(data);
         setTitle(data?.title);
         setContent(data?.content);
-        setBlogId(data?.blog?.blogId);
+        setBlogId(data?.blog?._id);
         setPickBlog(data?.blog?.blogName);
       } else {
         alert("수정할 데이터를 가져오는데 실패했습니다.")
@@ -47,6 +48,7 @@ const WritePage = () => {
   }
 
   useEffect(() => {
+
     getPostData();
   }, [])
 
@@ -59,21 +61,24 @@ const WritePage = () => {
   }
 
   async function setFetchData(conf) {
+
     if (conf) {
       const fetchData = new Object();
       fetchData.blog = blogId;
       fetchData.content = content;
       fetchData.title = title;
       fetchData.userId = session?.user.id;
+      console.log(fetchData,'fetchData?')
 
       if (type === "edit") fetchData.postId = originData?._id;
       const response = await fetch(`/api/post/new`, {
         method: type === "edit" ? "PATCH" : "POST",
         body: JSON.stringify(fetchData)
       });
-
+      console.log(response,'response')
       let result = await response.json();
-      
+      console.log(result,'result')
+
       if (response.ok) {
         if (type === "edit") {
           router.push("/blog" + originData?.blog.blogAddress + "/" + postId);
@@ -92,22 +97,20 @@ const WritePage = () => {
   }
 
 
-  const handlePost = () => {
+  const handlePost = async () => {
     if (!content && !title && content === '<p><br></p>') {
       return alert("내용을 확인해주세요.")
     }
 
     if (type === "edit") {
       let conf = confirm("작성하신 내용이 수정됩니다. 수정하시겠습니까? ")
-      setFetchData(conf)
+      // console.log(conf,'asdas')
+      await setFetchData(conf)
+
     } else {
       let conf = confirm("작성하신 내용이 발행됩니다. 발행하시겠습니까? ")
-      setFetchData(conf)
-
+      await setFetchData(conf)
     }
-
-
-
   }
 
   async function getBlogs() {

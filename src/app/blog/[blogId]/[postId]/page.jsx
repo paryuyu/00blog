@@ -5,6 +5,7 @@ import CommentInput from '@/components/CommentInput';
 import CommentList from '@/components/CommentList';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
+import BlogViewer from '@/components/BlogViewer';
 
 const postDetail = () => {
   const { postId } = useParams();
@@ -87,6 +88,7 @@ const postDetail = () => {
     router.push('/write?type=edit&postId=' + content?._id)
   }
 
+  
   return (
 
     <section className="post_detail_page">
@@ -106,7 +108,8 @@ const postDetail = () => {
 
       <div className='detail_content_box'>
 
-        <div className='detail_content' dangerouslySetInnerHTML={{ __html: content?.content }} />
+      
+        <BlogViewer content={content?.content}/>
         {content?.creator.email === session?.user.email &&
           <div className='detail_btn_group'>
             <button className='detail_btn' onClick={handleEdit}>수정</button>
