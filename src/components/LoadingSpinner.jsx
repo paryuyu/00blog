@@ -4,12 +4,11 @@ import { Spinner } from "spin.js";
 
 const options = {
   lines: 10,
-  length: 10,
-  width: 2.5,
+  length: 12,
+  width: 1,
   radius: 7,
-  // scale: 3.0,
   corners: 1,
-  color: '#7B66F0',
+  color: '#636363',
   fadeColor: 'transparent',
   animation: 'spinner-line-fade-default',
   rotate: 10,
@@ -37,7 +36,7 @@ export const LoadingSpinner = ({type}) => {
   function setTypeText(){
     if(type === "data"){
       return (<span className="desc loading-text">데이터를 불러오는 중입니다.<br/>잠시만 기다려주세요.</span>)
-    }else if(type === "loading"){
+    }else{
       return (<span className="desc loading-text">화면을 불러오는 중입니다.<br/>잠시만 기다려주세요.</span>)
     }
 
