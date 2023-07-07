@@ -3,13 +3,13 @@ import { useEffect, useRef } from "react";
 import { Spinner } from "spin.js";
 
 const options = {
-  lines: 12,
-  length: 14,
-  width: 0.5,
+  lines: 10,
+  length: 10,
+  width: 2.5,
   radius: 7,
   // scale: 3.0,
   corners: 1,
-  color: '#4D6266',
+  color: '#7B66F0',
   fadeColor: 'transparent',
   animation: 'spinner-line-fade-default',
   rotate: 10,
