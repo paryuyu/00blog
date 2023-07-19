@@ -25,7 +25,7 @@ export default async function Home() {
           <span className={Bagel.className}>00Blog에서<br />자신만의 이야기를 펼쳐보세요.</span></h1>
         <p className='desc'>카카오톡으로 간편하게 로그인하여 시작해보세요.</p>
       </div>
-      <Feed posts={data} />
+      <Feed post={data} />
     </section>
   )
 }
