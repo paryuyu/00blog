@@ -6,25 +6,28 @@ import React, { useEffect, useRef, useState } from 'react'
 import { LoadingSpinner } from './LoadingSpinner';
 import Postlist from './Postlist';
 
-const Feed = () => {
+
+const Feed = ({posts}) => {
+  console.log(posts,"posts!")
   const router = useRouter();
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
   const [schText, setSchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchResults, setSearchResult] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  //페치 함수
-  async function getPostData() {
-    setIsLoading(true);
-    const datas = await getAllPosts();
-    setPosts(datas);
-    setIsLoading(false);
-  }
 
-  //포스트 리스트
-  useEffect(() => {
-    getPostData()
-  }, [])
+  //페치 함수
+  // async function getPostData() {
+  //   setIsLoading(true);
+  //   const datas = await getAllPosts();
+  //   setPosts(datas);
+  //   setIsLoading(false);
+  // }
+
+  // //포스트 리스트
+  // useEffect(() => {
+  //   getPostData()
+  // }, [])
 
   //포스팅으로 바로 이동하는 함수 -> 중복을 줄이기위해 함수를 위로 빼기.
   const handleNavigationPost = (blogAddress, postId) => {
