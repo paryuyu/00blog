@@ -347,9 +347,8 @@ nav{
 }
 
 .blog-name{
-  @apply text-4xl font-semibold cursor-pointer text-gray-700
+  @apply text-4xl font-semibold text-gray-700 cursor-pointer;
 }
-
 
 .post-desc{
   @apply font-thin text-lg;

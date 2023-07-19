@@ -1,53 +1,36 @@
-"use client";
-
+import WriteButton from '@/components/WriteButton';
 import axios from 'axios';
-import { useSession } from 'next-auth/react';
-import { useParams, useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
-import { PiPencilSimpleLineThin } from 'react-icons/pi';
-const layout = ({children}) => {
-  const { data: session } = useSession();
-  const { blogId } = useParams();
-  const router = useRouter();
+import { env } from '../../../../next.config';
 
-  const [blogInfo, setBlogInfo] = useState();
-  const [posts, setPosts] = useState();
 
-  async function blogInfoGet() {
-    const response = await axios.get('/api/blog?blogId=' + blogId);
-    let { blog } = response.data;
-    let { post } = response.data;
-
-    setPosts(post);
-    setBlogInfo(blog);
-  }
-
-  useEffect(() => {
-    if (blogId) {
-      blogInfoGet();
+async function blogInfoGet(blogId) {
+  try {
+    const response = await axios.get(env.BASE_URL + '/api/blog?blogId=' + blogId);
+    if (response.status === 200) {
+      return await response.data;
     }
-  }, [])
 
-
-  const handleWrite = () => {
-    router.push("/write")
+  } catch (error) {
+    return error;
   }
+}
 
-  const handleBloghomeNav = () =>{
-    router.push("/blog"+blogInfo?.blogAddress)
-  }
+
+const layout = async ({ children, params }) => {
+  const { blogId } = params;
+  const { blog } = await blogInfoGet(blogId);
 
   return (
     <div>
       <div className='blog-header'>
-        <h2 className='blog-name' onClick={handleBloghomeNav}>
-          {blogInfo?.blogName}
-          </h2>
-        {blogInfo?.userId?.email === session?.user.email && <button onClick={handleWrite} className="circle_btn"><PiPencilSimpleLineThin /></button>}
+        <a href={env.BASE_URL + '/blog' + blog?.blogAddress} className='blog-name'  >
+          {blog?.blogName}
+        </a>
+        <WriteButton blog={blog} />
       </div>
       <div>{children}</div>
     </div>
   )
 }
 
-export default layout
+export default layout;
