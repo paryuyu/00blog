@@ -14,18 +14,14 @@ const Feed = ({post}) => {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchResults, setSearchResult] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [noPost, setNoPost] = useState("");
 
-  //페치 함수
-  // async function getPostData() {
-  //   setIsLoading(true);
-  //   const datas = await getAllPosts();
-  //   setPosts(datas);
-  //   setIsLoading(false);
-  // }
 
   //포스트 리스트
   useEffect(() => {
-    setPosts(post)
+    setIsLoading(true);
+    setPosts(post);
+    setIsLoading(false);
   }, [])
 
   //포스팅으로 바로 이동하는 함수 -> 중복을 줄이기위해 함수를 위로 빼기.
@@ -65,6 +61,7 @@ const Feed = ({post}) => {
         })
       }
       {isLoading && <LoadingSpinner type="data"/>}
+      {noPost && <p>{noPost}</p>}
     </section>
 
   )
