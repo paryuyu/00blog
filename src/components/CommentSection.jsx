@@ -21,6 +21,9 @@ const CommentSection = ({ comment, content }) => {
     if (comment && comment.length > 0) {
       setComments(comment)
     }
+  },[comment])
+  
+  useEffect(() => {
     getComment();
   }, [isComment])
 

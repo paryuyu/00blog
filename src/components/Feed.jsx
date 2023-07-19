@@ -1,6 +1,4 @@
 'use client';
-
-import { getAllPosts } from '@/services/post';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
 import { LoadingSpinner } from './LoadingSpinner';
@@ -30,7 +28,9 @@ const Feed = ({post}) => {
   }
 
   const filterSearchs = (text) => {
-    const regex = new RegExp(text, 'i');
+    if(text){
+      const regex = new RegExp(text, 'i');
+    }
 
     return posts?.filter((item) => regex.test(item?.blog.blogName) || regex.test(item?.content) || regex.test(item?.title) || regex.test(item?.creator.email) || regex.test(item?.creator.username))
   }
@@ -61,7 +61,6 @@ const Feed = ({post}) => {
         })
       }
       {isLoading && <LoadingSpinner type="data"/>}
-      {noPost && <p>{noPost}</p>}
     </section>
 
   )
