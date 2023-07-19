@@ -7,7 +7,7 @@ const Bagel = Bagel_Fat_One({ subsets: ['latin'], weight: "400" });
 
 async function getData() {
   try {
-    let response = await fetch(env.BASE_URL+'/api/post');
+    let response = await fetch(env.BASE_URL+'/api/post', { next: { revalidate: 10 } });
     let result = await response.json();
     return result;
   } catch (err) {
@@ -16,9 +16,8 @@ async function getData() {
 }
 
 export default async function Home() {
-  //fetch를 여기서 하기.
   let data = await getData();
-  console.log(data, 'data')
+ 
   return (
     <section className='mb-5'>
       <div className='heading_section'>
